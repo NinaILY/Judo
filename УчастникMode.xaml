@@ -1,0 +1,68 @@
+﻿<Window x:Class="Judo.УчастникMode"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Judo"
+        mc:Ignorable="d"
+        Title="УчастникMode" Height="450" Width="800">
+    <Grid Margin="0,0,-0.4,0" Background="#FFC6E4ED">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="0.4*" MaxHeight="40"/>
+        </Grid.RowDefinitions>
+
+        <Viewbox Width="472">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="3.4*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Label Content="Имя" MinWidth="50" MaxWidth="130" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <Label Content="Пол" MinWidth="50" MaxWidth="130" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <Label Content="Дата рождения" MinWidth="50" MaxWidth="130" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <Label Content="Место рождения" MinWidth="50" MaxWidth="130" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <Label Content="Улица" MinWidth="50" MaxWidth="130" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <Label Content="Город проживания" MinWidth="50" MaxWidth="130" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <Label Content="Спорт клуб" MinWidth="50" MaxWidth="130" Grid.Row="6" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                <Label Content="Вес" MinWidth="50" MaxWidth="130" Grid.Row="7" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+                <TextBox Text="{Binding Name, Mode=OneTime}" Name="name" MinWidth="150" Grid.ColumnSpan="2" Margin="115,3,-0.4,4" BorderBrush="#FF0E0E0E"/>
+                <StackPanel Grid.Column="1" Grid.Row="1" MinWidth="150">
+                    <RadioButton Content="M" IsChecked="True" Name="GenderM"/>
+                    <RadioButton Content="F" Name="GenderF" MinWidth="150"/>
+                </StackPanel>
+                <DatePicker Text="{Binding Birthday, Mode=OneTime}" Name="Birthday" Grid.Row="2" MinWidth="150" Grid.ColumnSpan="2" Margin="115,5,-0.4,5.2" BorderBrush="Black"/>
+                <TextBox Text="{Binding Birthtown, Mode=OneTime}" Name="Birthtown" Grid.Row="3" MinWidth="150" Grid.ColumnSpan="2" Margin="115,3.4,-0.4,4.4" BorderBrush="#FF121212"/>
+                <TextBox Text="{Binding Street, Mode=OneTime}" Name="Street" Grid.Row="4" MinWidth="150" Grid.ColumnSpan="2" Margin="115,9.8,-0.4,4.6" BorderBrush="#FF0D0D0E"/>
+                <TextBox Text="{Binding Hometown, Mode=OneTime}" Name="Hometown" Grid.Row="5" MinWidth="150" Grid.ColumnSpan="2" Margin="115,9.8,-0.4,4.6" BorderBrush="#FF121212"/>
+                <TextBox Text="{Binding Sportsclub, Mode=OneTime}" Name="Sportclub" Grid.Row="6" MinWidth="150" Grid.ColumnSpan="2" Margin="115,9.8,-0.4,4.6" BorderBrush="#FF111212"/>
+                <StackPanel Grid.Column="5" Grid.Row="7" MinWidth="150">
+                    <TextBlock x:Name="WT" Text="{Binding ElementName=Weight, Path=Value}"/>
+                    <Slider Value="{Binding Weight_kg, Mode=OneTime}" Maximum="200" Name="Weight" Background="#FFF9F7F7" />
+                </StackPanel>
+            </Grid>
+        </Viewbox>
+
+        <Viewbox Grid.Row="11" HorizontalAlignment="Right">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Click="Apply_Click" Margin="-44,0,65.6,2" Content="Принять" Padding="4 3" HorizontalAlignment="Center" VerticalAlignment="Center" Background="#FF0081DC" Height="26" Width="76" BorderBrush="#FF0B0A0A"/>
+                <Button Click="Close_Click" Margin="48,0,4.6,2" Content="Закрыть" Padding="4 3" HorizontalAlignment="Center" VerticalAlignment="Center" Background="#FF498DBD" Grid.ColumnSpan="2" Width="77" Height="26" BorderBrush="#FF0F0F0F"/>
+            </Grid>
+        </Viewbox>
+    </Grid>
+</Window>
